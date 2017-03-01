@@ -1,0 +1,15 @@
+ALS Nodo : publico{
+	cadena nombre : publico = “”?
+	var entero : numero publico = 0?
+	var bool bandera : publico = verdadero?
+	
+	void cambiar_bandera(){
+		Si(bandera == falso){
+			bandera == verdadero?
+		}Sino{
+			Si(bandera == verdadero){
+				bandera == false?
+			}
+		}
+	}
+}

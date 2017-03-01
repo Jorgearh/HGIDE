@@ -56,7 +56,7 @@ public class Archivo implements UI{
         Documento doc;
         
         chooser = new JFileChooser(SOURCE_FILES);
-        chooser.setFileFilter(filtro);
+        chooser.setFileFilter(FILTRO);
         chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 
         seleccion = chooser.showOpenDialog(null);
@@ -170,7 +170,7 @@ public class Archivo implements UI{
     private static void guardarComo(Documento doc){
         
         JFileChooser chooser = new JFileChooser(SOURCE_FILES);
-        chooser.setFileFilter(filtro);
+        chooser.setFileFilter(FILTRO);
         chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         
         int seleccion = chooser.showSaveDialog(null);

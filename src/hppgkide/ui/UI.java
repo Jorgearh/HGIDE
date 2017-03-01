@@ -21,6 +21,17 @@ public interface UI {
     final String HK_DIRECTORY = SOURCE_FILES + "HkFiles\\";
     final String GK_DIRECTORY = SOURCE_FILES + "GkFiles\\";
     
+    /***
+     * filtro archivos haskell++ y graphik
+     */
+    final FileNameExtensionFilter FILTRO = new FileNameExtensionFilter("Archivos H++,Gk (*.hk, *.gk)", "hk", "gk");;
     
-    final FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos H++,Gk (*.hk, *.gk)", "hk", "gk");;
+    
+    /***
+     * permisos
+     */
+    final char PRIVADO = '1';
+    final char COMPARTIDO = '2';
+    final char PUBLICO = '3';
+    
 }

@@ -1,0 +1,13 @@
+Factorial n = if n==1 then
+		$Calcular 1$
+	else
+		$Calcular n *$Factorial{$Calcular n-1 $}$$
+		end
+	end
+	
+FormCuadraticaPositiva a, b, c = $Calcular (-b + 2’raiz’(b’pot’2+4*a*c))/(2*a)$ end
+FormCuadraticaNegativa a, b, c = $Calcular (-b - 2’raiz’(b’pot’2-4*a*c))/(2*a)$ end
+Permutacion n, r = $Calcular ($Factorial{n}$/ $Factorial{n-r}$)$ end
+FuncionPolinomial1 x = $Calcular (x’pot’4 + x’pot’2 - x + 4)$ 
+end
+Modificacion...

@@ -15,18 +15,26 @@ public class IDE extends javax.swing.JFrame {
 
     HashMap<String, Documento> documentos;
     
+    
     public IDE() {
         initComponents();
         
-        documentos = new HashMap<String, Documento>();
-        
+        documentos = new HashMap<>();
         
         Archivo.documentos = this.documentos;
         Archivo.jtpEditor = this.jtpEditor;
         Archivo.row = this.jlRow;
         Archivo.col = this.jlCol;
-        
         Archivo.crearDirectorios();
+        
+        Usuario.jmiImportar = this.jmiProyectoImportar;
+        Usuario.jmiNuevo = this.jmiProyectoNuevo;
+        Usuario.jmiPublicar = this.jmiProyectoPublicar;
+        Usuario.jmiLogin = this.jmiUsuarioLogin;
+        Usuario.jmiLogout = this.jmiUsuarioLogout;
+        Usuario.onLine = false;
+        
+        Usuario.iniciar(false);
     }
     
     
@@ -76,14 +84,18 @@ public class IDE extends javax.swing.JFrame {
         jSeparator7 = new javax.swing.JPopupMenu.Separator();
         jmiProyectoPublicar = new javax.swing.JMenuItem();
         jmTraductor = new javax.swing.JMenu();
-        jmiTraductorLogin = new javax.swing.JMenuItem();
-        jSeparator8 = new javax.swing.JPopupMenu.Separator();
         jmiTraductorTraducir = new javax.swing.JMenuItem();
         jSeparator9 = new javax.swing.JPopupMenu.Separator();
         jmTraductorReportes = new javax.swing.JMenu();
         jmiTraductorReportesTablaSimbolos = new javax.swing.JMenuItem();
         jSeparator10 = new javax.swing.JPopupMenu.Separator();
         jmiTraductorReportesErrores = new javax.swing.JMenuItem();
+        jmiUsuario = new javax.swing.JMenu();
+        jmiUsuarioLogin = new javax.swing.JMenuItem();
+        jSeparator8 = new javax.swing.JPopupMenu.Separator();
+        jmiUsuarioRegistro = new javax.swing.JMenuItem();
+        jSeparator11 = new javax.swing.JPopupMenu.Separator();
+        jmiUsuarioLogout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("H++ & GK");
@@ -224,23 +236,34 @@ public class IDE extends javax.swing.JFrame {
         jmProyecto.setText("Proyecto");
 
         jmiProyectoNuevo.setText("Nuevo");
+        jmiProyectoNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiProyectoNuevoActionPerformed(evt);
+            }
+        });
         jmProyecto.add(jmiProyectoNuevo);
         jmProyecto.add(jSeparator6);
 
         jmiProyectoImportar.setText("Importar");
+        jmiProyectoImportar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiProyectoImportarActionPerformed(evt);
+            }
+        });
         jmProyecto.add(jmiProyectoImportar);
         jmProyecto.add(jSeparator7);
 
         jmiProyectoPublicar.setText("Publicar");
+        jmiProyectoPublicar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiProyectoPublicarActionPerformed(evt);
+            }
+        });
         jmProyecto.add(jmiProyectoPublicar);
 
         jMenuBar1.add(jmProyecto);
 
         jmTraductor.setText("Traductor");
-
-        jmiTraductorLogin.setText("Login");
-        jmTraductor.add(jmiTraductorLogin);
-        jmTraductor.add(jSeparator8);
 
         jmiTraductorTraducir.setText("Traducir");
         jmTraductor.add(jmiTraductorTraducir);
@@ -258,6 +281,36 @@ public class IDE extends javax.swing.JFrame {
         jmTraductor.add(jmTraductorReportes);
 
         jMenuBar1.add(jmTraductor);
+
+        jmiUsuario.setText("Usuario");
+
+        jmiUsuarioLogin.setText("Login");
+        jmiUsuarioLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiUsuarioLoginActionPerformed(evt);
+            }
+        });
+        jmiUsuario.add(jmiUsuarioLogin);
+        jmiUsuario.add(jSeparator8);
+
+        jmiUsuarioRegistro.setText("Registro");
+        jmiUsuarioRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiUsuarioRegistroActionPerformed(evt);
+            }
+        });
+        jmiUsuario.add(jmiUsuarioRegistro);
+        jmiUsuario.add(jSeparator11);
+
+        jmiUsuarioLogout.setText("Logout");
+        jmiUsuarioLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiUsuarioLogoutActionPerformed(evt);
+            }
+        });
+        jmiUsuario.add(jmiUsuarioLogout);
+
+        jMenuBar1.add(jmiUsuario);
 
         setJMenuBar(jMenuBar1);
 
@@ -315,6 +368,30 @@ public class IDE extends javax.swing.JFrame {
         Archivo.cerrarPestania();
     }//GEN-LAST:event_jmiArchivoCerrarPestaniaActionPerformed
 
+    private void jmiUsuarioLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiUsuarioLoginActionPerformed
+        Usuario.login();
+    }//GEN-LAST:event_jmiUsuarioLoginActionPerformed
+
+    private void jmiProyectoNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiProyectoNuevoActionPerformed
+        Proyecto.nuevo();
+    }//GEN-LAST:event_jmiProyectoNuevoActionPerformed
+
+    private void jmiProyectoImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiProyectoImportarActionPerformed
+        Proyecto.importar();
+    }//GEN-LAST:event_jmiProyectoImportarActionPerformed
+
+    private void jmiProyectoPublicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiProyectoPublicarActionPerformed
+        Proyecto.publicar();
+    }//GEN-LAST:event_jmiProyectoPublicarActionPerformed
+
+    private void jmiUsuarioRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiUsuarioRegistroActionPerformed
+        Usuario.registro();
+    }//GEN-LAST:event_jmiUsuarioRegistroActionPerformed
+
+    private void jmiUsuarioLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiUsuarioLogoutActionPerformed
+        Usuario.logout();
+    }//GEN-LAST:event_jmiUsuarioLogoutActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -359,6 +436,7 @@ public class IDE extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator10;
+    private javax.swing.JPopupMenu.Separator jSeparator11;
     private javax.swing.JToolBar.Separator jSeparator12;
     private javax.swing.JToolBar.Separator jSeparator13;
     private javax.swing.JToolBar.Separator jSeparator14;
@@ -388,10 +466,13 @@ public class IDE extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiProyectoImportar;
     private javax.swing.JMenuItem jmiProyectoNuevo;
     private javax.swing.JMenuItem jmiProyectoPublicar;
-    private javax.swing.JMenuItem jmiTraductorLogin;
     private javax.swing.JMenuItem jmiTraductorReportesErrores;
     private javax.swing.JMenuItem jmiTraductorReportesTablaSimbolos;
     private javax.swing.JMenuItem jmiTraductorTraducir;
+    private javax.swing.JMenu jmiUsuario;
+    private javax.swing.JMenuItem jmiUsuarioLogin;
+    private javax.swing.JMenuItem jmiUsuarioLogout;
+    private javax.swing.JMenuItem jmiUsuarioRegistro;
     private javax.swing.JToolBar jtArchivo;
     private javax.swing.JToolBar jtTraductor;
     private javax.swing.JTabbedPane jtpEditor;
