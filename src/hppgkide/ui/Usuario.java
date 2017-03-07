@@ -1,5 +1,6 @@
 package hppgkide.ui;
 
+import javax.swing.JLabel;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
@@ -12,31 +13,33 @@ public class Usuario {
     static String user;
     static String password;
     
-    public static JMenuItem jmiNuevo, jmiImportar, jmiPublicar, jmiLogin, jmiLogout;
+    public static JMenuItem jmiNuevo, jmiImportar, jmiPublicar, jmiLogin, jmiLogout, jmiRegistrar;
+    public static JLabel jlUsuario;
     
-    public static void login(){
+    public static void iniciarSesion(){
         VentanaLogin login = new VentanaLogin();
-        boolean acceso = true;
         
         login.setTitle("Login");
         login.setLogin();
         login.setVisible(true);
         
-        iniciar(acceso);
+        //iniciar(acceso);
     }
     
-    public static void registro(){
+    public static void registrarUsuario(){
         VentanaLogin login = new VentanaLogin();
-        boolean acceso = true;
         
         login.setTitle("Registro");
         login.setRegistro();
         login.setVisible(true);
         
-        iniciar(acceso);
+        
+        
+        
+        //iniciar(acceso);
     }
     
-    public static void logout(){
+    public static void cerrarSesion(){
         int seleccion = JOptionPane.showConfirmDialog(null,
                         "Desea cerrar la sesion para " + user + "?",
                         "Cerrar Sesion", 
@@ -47,10 +50,10 @@ public class Usuario {
         if(seleccion == JOptionPane.YES_OPTION){
             user = "";
             password = "";
+            jlUsuario.setText("Offline");
             iniciar(false);
         }
     }
-    
     
     protected static void iniciar(boolean acceso){
         jmiNuevo.setEnabled(acceso);
@@ -58,7 +61,14 @@ public class Usuario {
         jmiPublicar.setEnabled(acceso);
         
         jmiLogout.setEnabled(acceso);
+        jmiRegistrar.setEnabled(!acceso);
         jmiLogin.setEnabled(!acceso);
         
     }
+    
+    
+    /*consumir servicios web Usuario*/
+    
+    
+    
 }

@@ -6,6 +6,8 @@ package hppgkide.ui;
  */
 public class VentanaLogin extends javax.swing.JFrame {
 
+    char tipo;
+    
     public VentanaLogin() {
         initComponents();
         
@@ -14,14 +16,65 @@ public class VentanaLogin extends javax.swing.JFrame {
     
 
     public void setLogin(){
-        this.jButton1.setText("Login");
+        this.jbLogin.setText("Login");
+        this.tipo = '1';
     }
     
     public void setRegistro(){
-        this.jButton1.setText("Registro");
+        this.jbLogin.setText("Registro");
+        this.tipo = '0';
+    }
+    
+    private void login(){
+//        String u = this.jTextField1.getText();
+//        String p = new String(this.jPasswordField1.getPassword());
+//        
+//        if(u != null && p != null){
+//            Usuario.user = u;
+//            Usuario.password = p;
+//            System.out.println("pass: " + p);
+//            switch(Usuario.login(u, p)){
+//                case 0:
+//                    Usuario.jlUsuario.setText(u);
+//                    Usuario.onLine = true;
+//                    Usuario.iniciar(true);
+//                    this.dispose();
+//                    break;
+//                case 1:
+//                    this.jlMensaje.setText("Usuario invalido.");
+//                    break;
+//                case 2:
+//                    this.jlMensaje.setText("Contrasenia invalida.");
+//                    break;
+//            }
+//            
+//        }else{
+//            this.jTextField1.setText("");
+//            this.jPasswordField1.setText("");
+//        }
     }
 
-    
+    private void registro(){
+//        String u = this.jTextField1.getText();
+//        String p = new String(this.jPasswordField1.getPassword());
+//        
+//        if(u != null && p != null){
+//            if(Usuario.registrar(u, p)){
+//                Usuario.user = u;
+//                Usuario.password = p;
+//                Usuario.jlUsuario.setText(u);
+//                Usuario.onLine = true;
+//                Usuario.iniciar(true);
+//                this.dispose();
+//            }else{
+//                this.jlMensaje.setText("Ya existe el usuario " + u);
+//            }
+//            
+//        }else{
+//            this.jTextField1.setText("");
+//            this.jPasswordField1.setText("");
+//        }
+    }
     
     
     
@@ -32,20 +85,21 @@ public class VentanaLogin extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
         jSplitPane1 = new javax.swing.JSplitPane();
-        jButton1 = new javax.swing.JButton();
+        jbLogin = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jlMensaje = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jButton1.setText("Login");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbLogin.setText("Login");
+        jbLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbLoginActionPerformed(evt);
             }
         });
-        jSplitPane1.setLeftComponent(jButton1);
+        jSplitPane1.setLeftComponent(jbLogin);
 
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -59,11 +113,17 @@ public class VentanaLogin extends javax.swing.JFrame {
 
         jLabel2.setText("Password: ");
 
+        jlMensaje.setText("  ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
+                .addGap(117, 117, 117)
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(144, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -71,12 +131,9 @@ public class VentanaLogin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField1)
-                    .addComponent(jPasswordField1))
+                    .addComponent(jPasswordField1)
+                    .addComponent(jlMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(117, 117, 117)
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(144, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,7 +147,9 @@ public class VentanaLogin extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2))
-                .addGap(47, 47, 47)
+                .addGap(15, 15, 15)
+                .addComponent(jlMensaje)
+                .addGap(18, 18, 18)
                 .addComponent(jSplitPane1)
                 .addContainerGap())
         );
@@ -98,21 +157,15 @@ public class VentanaLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String u = this.jTextField1.getText();
-        String p = this.jPasswordField1.getPassword().toString();
-        
-        if(u != null && p != null){
-            Usuario.user = u;
-            Usuario.password = p;
-            this.dispose();
-        }else{
-            this.jTextField1.setText("");
-            this.jPasswordField1.setText("");
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jbLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLoginActionPerformed
+        if(this.tipo == '0')
+            registro();
+        else if(this.tipo == '1')
+            login();
+    }//GEN-LAST:event_jbLoginActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Usuario.iniciar(false);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -153,12 +206,13 @@ public class VentanaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton jbLogin;
+    private javax.swing.JLabel jlMensaje;
     // End of variables declaration//GEN-END:variables
 }

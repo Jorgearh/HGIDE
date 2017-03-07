@@ -32,7 +32,9 @@ public class IDE extends javax.swing.JFrame {
         Usuario.jmiPublicar = this.jmiProyectoPublicar;
         Usuario.jmiLogin = this.jmiUsuarioLogin;
         Usuario.jmiLogout = this.jmiUsuarioLogout;
+        Usuario.jmiRegistrar = this.jmiUsuarioRegistro;
         Usuario.onLine = false;
+        Usuario.jlUsuario = this.jlUsuario;
         
         Usuario.iniciar(false);
     }
@@ -63,6 +65,9 @@ public class IDE extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jSeparator14 = new javax.swing.JToolBar.Separator();
         jlCol = new javax.swing.JLabel();
+        jSeparator15 = new javax.swing.JToolBar.Separator();
+        jSeparator16 = new javax.swing.JToolBar.Separator();
+        jlUsuario = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmArchivo = new javax.swing.JMenu();
         jmArchivoNuevo = new javax.swing.JMenu();
@@ -171,6 +176,11 @@ public class IDE extends javax.swing.JFrame {
 
         jlCol.setText("0");
         jToolBar3.add(jlCol);
+        jToolBar3.add(jSeparator15);
+        jToolBar3.add(jSeparator16);
+
+        jlUsuario.setText("Offline");
+        jToolBar3.add(jlUsuario);
 
         jmArchivo.setText("Archivo");
 
@@ -321,9 +331,9 @@ public class IDE extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jtArchivo, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtTraductor, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToolBar3, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE))
+                .addComponent(jtTraductor, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jToolBar3, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -369,7 +379,7 @@ public class IDE extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiArchivoCerrarPestaniaActionPerformed
 
     private void jmiUsuarioLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiUsuarioLoginActionPerformed
-        Usuario.login();
+        Usuario.iniciarSesion();
     }//GEN-LAST:event_jmiUsuarioLoginActionPerformed
 
     private void jmiProyectoNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiProyectoNuevoActionPerformed
@@ -385,11 +395,11 @@ public class IDE extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiProyectoPublicarActionPerformed
 
     private void jmiUsuarioRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiUsuarioRegistroActionPerformed
-        Usuario.registro();
+        Usuario.registrarUsuario();
     }//GEN-LAST:event_jmiUsuarioRegistroActionPerformed
 
     private void jmiUsuarioLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiUsuarioLogoutActionPerformed
-        Usuario.logout();
+        Usuario.cerrarSesion();
     }//GEN-LAST:event_jmiUsuarioLogoutActionPerformed
 
     public static void main(String args[]) {
@@ -440,6 +450,8 @@ public class IDE extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator12;
     private javax.swing.JToolBar.Separator jSeparator13;
     private javax.swing.JToolBar.Separator jSeparator14;
+    private javax.swing.JToolBar.Separator jSeparator15;
+    private javax.swing.JToolBar.Separator jSeparator16;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
@@ -452,6 +464,7 @@ public class IDE extends javax.swing.JFrame {
     private javax.swing.JToolBar jToolBar3;
     private javax.swing.JLabel jlCol;
     private javax.swing.JLabel jlRow;
+    private javax.swing.JLabel jlUsuario;
     private javax.swing.JMenu jmArchivo;
     private javax.swing.JMenu jmArchivoNuevo;
     private javax.swing.JMenu jmProyecto;

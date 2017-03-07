@@ -209,9 +209,9 @@
           <Group type="102" attributes="0">
               <Component id="jtArchivo" pref="240" max="32767" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Component id="jtTraductor" pref="154" max="32767" attributes="0"/>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Component id="jToolBar3" pref="153" max="32767" attributes="0"/>
+              <Component id="jtTraductor" pref="124" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+              <Component id="jToolBar3" pref="179" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
@@ -363,6 +363,15 @@
         <Component class="javax.swing.JLabel" name="jlCol">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JToolBar$Separator" name="jSeparator15">
+        </Component>
+        <Component class="javax.swing.JToolBar$Separator" name="jSeparator16">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jlUsuario">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Offline"/>
           </Properties>
         </Component>
       </SubComponents>
